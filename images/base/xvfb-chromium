@@ -17,7 +17,7 @@ xvfb=$!
 
 export DISPLAY=:99
 
-chromium --no-sandbox $@ &
+chromium --no-sandbox --remote-debugging-port=9222 --user-data-dir=/tmp/hilalisa --disable-translate --disable-extensions --enable-dom-distiller  --vmodule=dom_distiller*=1 --disable-gpu --enable-distillability-service --enable-zero-copy --user-agent="Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1" --window-size="375,812" --window-position="0,0" --bwsi --disable-search-geolocation-disclosure --aggressive-cache-discard --aggressive-tab-discard --use-mobile-user-agent --user-data-dir --disable-web-securitygoo chrome://dom-distiller" $@ &
 chromium=$!
 
 wait $chromium
